@@ -1,4 +1,6 @@
 wandb/
+mycar/
+data/
 .DS_Store
 .idea/
 # Byte-compiled / optimized / DLL files
