@@ -9,7 +9,7 @@ This repo contains submodule, so do git clone recursively:
 
 Install deps for submodule (OSX):
 
-`conda env create -f donkeycar/install/envs/mac.yml` (this will take up to 5 minutes)
+`conda env create -f donkeycar/install/envs/mac.yml` (this may take up to 5 minutes)
 
 `conda activate donkey`
 
@@ -21,5 +21,7 @@ Install deps for submodule (OSX):
 Install deps for this project
 
 `conda install -c conda-forge jupyterlab ipykernel`
+
 `ipython kernel install --user --name=donkey`
+
 `jupyter lab`
