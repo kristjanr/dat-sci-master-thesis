@@ -1,0 +1,4 @@
+[submodule "donkeycar"]
+	path = donkeycar
+	url = https://github.com/kristjanr/donkeycar.git
+	branch = dev
