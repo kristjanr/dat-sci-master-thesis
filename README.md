@@ -20,7 +20,7 @@ Install deps for submodule (OSX):
 
 Install deps for this project
 
-`conda install -c conda-forge jupyterlab ipykernel`
+`conda install -c conda-forge jupyterlab ipykernel scikit-learn`
 
 `ipython kernel install --user --name=donkey`
 
