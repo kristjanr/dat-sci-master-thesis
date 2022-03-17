@@ -9,7 +9,7 @@ def train_model(model, models_path: str, fold: int, train_records: list, n_folds
     model_name = build_model_name(model, fold, n_folds, direction)
     model_path = f'{models_path}{model_name}.h5'
     if cfg.WANDB_ENABLED:
-        run = init_wandb(fold, model_name)
+        run = init_wandb(model_name, direction, n_folds, fold, cfg)
 
     train(model, model_path, cfg, train_records)
 
@@ -19,20 +19,19 @@ def train_model(model, models_path: str, fold: int, train_records: list, n_folds
     return model
 
 
-def init_wandb(fold, model_name, model_class, n_folds, direction, cfg: Config):
+def init_wandb(model_name, direction, n_folds, fold, cfg: Config):
     import wandb
     config = {
-        "model_class_name": str(model_class),
+        "model_name": model_name,
         "total_folds": n_folds,
         "fold": fold,
-        "model_name": model_name,
         "SEQUENCE_LENGTH": cfg.SEQUENCE_LENGTH,
         "EARLY_STOP_PATIENCE": cfg.EARLY_STOP_PATIENCE,
         "DIRECTION": direction,
         "BATCH_SIZE": cfg.BATCH_SIZE,
         "MAX_EPOCHS": cfg.MAX_EPOCHS,
     }
-    return wandb.init(project="master-thesis", entity="kristjan", config=config)
+    return wandb.init(project="master-thesis", entity="kristjan", name=model_name, config=config)
 
 
 def train(kl, model_path, cfg, data):
