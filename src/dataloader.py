@@ -7,7 +7,7 @@ from collections import defaultdict
 import numpy as np
 
 
-def load_data(cfg, model, data_path='data', direction=None, size=None):
+def load_data(cfg, data_path='data', direction=None, size=None):
     tub_names_80_speed = [
         '1-1-CC-80',
         '2-1-CW-80',
@@ -31,18 +31,18 @@ def load_data(cfg, model, data_path='data', direction=None, size=None):
         tub_names_85_speed = [name for name in tub_names_85_speed if direction in name]
         tub_names_90_speed = [name for name in tub_names_90_speed if direction in name]
 
-    tub_records_80_speed = {tn: load_records(tn, model, cfg, data_path, size) for tn in tub_names_80_speed}
-    tub_records_85_speed = {tn: load_records(tn, model, cfg, data_path, size) for tn in tub_names_85_speed}
-    tub_records_90_speed = {tn: load_records(tn, model, cfg, data_path, size) for tn in tub_names_90_speed}
+    tub_records_80_speed = {tn: load_records(tn, cfg, data_path, size) for tn in tub_names_80_speed}
+    tub_records_85_speed = {tn: load_records(tn, cfg, data_path, size) for tn in tub_names_85_speed}
+    tub_records_90_speed = {tn: load_records(tn, cfg, data_path, size) for tn in tub_names_90_speed}
 
     return tub_records_80_speed, tub_records_85_speed, tub_records_90_speed
 
 
-def load_records(tub_name, model, cfg, data_path, size=None):
+def load_records(tub_name, cfg, data_path, size=None):
     dataset = TubDataset(
         config=cfg,
         tub_paths=[os.path.expanduser(os.path.join(data_path, tub_name))],
-        seq_size=model.seq_size())
+        seq_size=cfg.SEQUENCE_LENGTH)
 
     records = dataset.get_records()[:size]
     return records
