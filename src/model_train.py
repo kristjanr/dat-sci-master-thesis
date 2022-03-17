@@ -1,3 +1,4 @@
+from donkeycar.config import Config
 from model_loader import build_model_name
 from donkeycar.utils import train_test_split
 from donkeycar.pipeline.training import BatchSequence
