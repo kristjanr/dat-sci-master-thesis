@@ -25,13 +25,16 @@ def init_wandb(model_name, direction, n_folds, fold, cfg: Config):
         "model_name": model_name,
         "total_folds": n_folds,
         "fold": fold,
+        "DIRECTION": direction,
         "SEQUENCE_LENGTH": cfg.SEQUENCE_LENGTH,
         "EARLY_STOP_PATIENCE": cfg.EARLY_STOP_PATIENCE,
-        "DIRECTION": direction,
         "BATCH_SIZE": cfg.BATCH_SIZE,
         "MAX_EPOCHS": cfg.MAX_EPOCHS,
+        "OPTIMIZER": cfg.OPTIMIZER,
+        "LEARNING_RATE": cfg.LEARNING_RATE,
+        "LEARNING_RATE_DECAY": cfg.LEARNING_RATE_DECAY,
     }
-    return wandb.init(project="master-thesis", entity="kristjan", name=model_name, config=config)
+    return wandb.init(project="master-thesis", entity="kristjan", config=config)
 
 
 def train(kl, model_path, cfg, data):
