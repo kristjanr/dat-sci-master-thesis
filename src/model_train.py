@@ -37,6 +37,8 @@ def init_wandb(fold, model_name, model_class, n_folds, direction, cfg: Config):
 
 def train(kl, model_path, cfg, data):
     dataset_train, dataset_validate, train_size, val_size = prep_fold_data(kl, cfg, data)
+    if cfg.OPTIMIZER:
+        kl.set_optimizer(cfg.OPTIMIZER, cfg.LEARNING_RATE, cfg.LEARNING_RATE_DECAY)
     history = kl.train(model_path=model_path,
                        train_data=dataset_train,
                        train_steps=train_size,
