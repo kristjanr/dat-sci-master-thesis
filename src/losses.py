@@ -67,25 +67,25 @@ class ModelResults:
 
         print(f'Getting 90-speed  mse-s for fold {fold}')
         for tub_name, test_records in self.tub_records_90_speed.items():
-            tub_results_holder = Results(tub_name, self.config, fold, model, test_records)
+            tub_results_holder = Results(tub_name, self.direction, self.config, fold, model, test_records)
             print(tub_results_holder)
             results_90_speed.append(tub_results_holder)
 
-        results_90_speed_test = Results('test90', self.config, fold, model, records_90_speed_test)
+        results_90_speed_test = Results('test90', self.direction, self.config, fold, model, records_90_speed_test)
         print(results_90_speed_test)
 
-        results_90_speed_train = Results('train90', self.config, fold, model, records_90_speed_train, is_train=True)
+        results_90_speed_train = Results('train90', self.direction, self.config, fold, model, records_90_speed_train, is_train=True)
         print(results_90_speed_train)
 
         print(f'Getting 85-speed mse-s for fold {fold}')
         for tub_name, test_records in self.tub_records_85_speed.items():
-            tub_results_holder = Results(tub_name, self.config, fold, model, test_records)
+            tub_results_holder = Results(tub_name, self.direction, self.config, fold, model, test_records)
             print(tub_results_holder)
             results_85_speed.append(tub_results_holder)
 
         print(f'Getting 80-speed mse-s for fold {fold}')
         for tub_name, test_records in self.tub_records_80_speed.items():
-            tub_results_holder = Results(tub_name, self.config, fold, model, test_records)
+            tub_results_holder = Results(tub_name, self.direction, self.config, fold, model, test_records)
             print(tub_results_holder)
             results_80_speed.append(tub_results_holder)
 
@@ -153,8 +153,9 @@ def get_pipe(model: KerasPilot, config: Config, records: List[TubRecord]):
 
 
 class Results:
-    def __init__(self, tub_name, cfg, fold, model, test_records, is_train=False):
+    def __init__(self, tub_name, direction, cfg, fold, model, test_records, is_train=False):
         self.name = tub_name
+        self.direction = direction
         self.fold = fold
         self.is_train = is_train
         ground_truths, predictions = get_ground_truth_and_preds(model, cfg, test_records)
