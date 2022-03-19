@@ -66,8 +66,8 @@ class ModelResults:
         results_80_speed = []
 
         print(f'Getting 90-speed  mse-s for fold {fold}')
-        for tub_name, test_records in self.tub_records_90_speed.items():
-            tub_results_holder = Results(tub_name, self.direction, self.config, fold, model, test_records)
+        for tub_name, records in self.tub_records_90_speed.items():
+            tub_results_holder = Results(tub_name, self.direction, self.config, fold, model, records, is_train=True)
             print(tub_results_holder)
             results_90_speed.append(tub_results_holder)
 
@@ -78,14 +78,14 @@ class ModelResults:
         print(results_90_speed_train)
 
         print(f'Getting 85-speed mse-s for fold {fold}')
-        for tub_name, test_records in self.tub_records_85_speed.items():
-            tub_results_holder = Results(tub_name, self.direction, self.config, fold, model, test_records)
+        for tub_name, records in self.tub_records_85_speed.items():
+            tub_results_holder = Results(tub_name, self.direction, self.config, fold, model, records)
             print(tub_results_holder)
             results_85_speed.append(tub_results_holder)
 
         print(f'Getting 80-speed mse-s for fold {fold}')
-        for tub_name, test_records in self.tub_records_80_speed.items():
-            tub_results_holder = Results(tub_name, self.direction, self.config, fold, model, test_records)
+        for tub_name, records in self.tub_records_80_speed.items():
+            tub_results_holder = Results(tub_name, self.direction, self.config, fold, model, records)
             print(tub_results_holder)
             results_80_speed.append(tub_results_holder)
 
