@@ -92,10 +92,8 @@ class ModelResults:
         return results_80_speed, results_85_speed, results_90_speed, [results_90_speed_test], [results_90_speed_train]
 
 
-def get_ground_truth_and_preds(kl, cfg, test_records):
-    ground_truth = get_ground_truth(kl, test_records)
-    test_preds = get_predictions(kl, cfg, test_records)
-    return ground_truth, test_preds
+def get_ground_truth_and_preds(kl, cfg, records):
+    return get_ground_truth(kl, records), get_predictions(kl, cfg, records)
 
 
 def mse(v1, v2):
@@ -107,24 +105,24 @@ def mse(v1, v2):
     return mean_squared_error(v1, v2)
 
 
-def get_ground_truth(kl, test_records: List[TubRecord]):
+def get_ground_truth(kl, records: List[TubRecord]):
     if kl.seq_size() > 0:
         print(f'seq size {kl.seq_size()}')
-        ground_truth = [r[kl.seq_size() - 1].underlying['user/angle'] for r in test_records]
+        ground_truth = [r[kl.seq_size() - 1].underlying['user/angle'] for r in records]
     else:
-        ground_truth = [r.underlying['user/angle'] for r in test_records]
+        ground_truth = [r.underlying['user/angle'] for r in records]
 
     print(f'len ground_truth {len(ground_truth)}')
 
     return ground_truth
 
 
-def get_predictions(kl, cfg, test_records):
-    pipe = get_pipe(kl, cfg, test_records)
+def get_predictions(kl, cfg, records):
+    pipe = get_pipe(kl, cfg, records)
     steps = len(pipe)
     dataset = get_dataset_from_pipe(pipe)
 
-    test_preds = kl.interpreter.model.predict(
+    predictions = kl.interpreter.model.predict(
         dataset,
         workers=multiprocessing.cpu_count(),
         use_multiprocessing=True,
@@ -132,13 +130,13 @@ def get_predictions(kl, cfg, test_records):
         verbose=1)
 
     if 'Linear' in str(kl):
-        test_preds = np.array(test_preds)[0][:len(test_records)]
+        predictions = np.array(predictions)[0][:len(records)]
     else:
-        test_preds = np.array(test_preds)[:len(test_records)].T[0]
+        predictions = np.array(predictions)[:len(records)].T[0]
 
-    print(f'shape test_preds {test_preds.shape}')
+    print(f'predictions shape {predictions.shape}')
 
-    return test_preds
+    return predictions
 
 
 def get_dataset_from_pipe(pipe):
@@ -153,12 +151,12 @@ def get_pipe(model: KerasPilot, config: Config, records: List[TubRecord]):
 
 
 class Results:
-    def __init__(self, tub_name, direction, cfg, fold, model, test_records, is_train=False):
+    def __init__(self, tub_name, direction, cfg, fold, model, records, is_train=False):
         self.name = tub_name
         self.direction = direction
         self.fold = fold
         self.is_train = is_train
-        ground_truths, predictions = get_ground_truth_and_preds(model, cfg, test_records)
+        ground_truths, predictions = get_ground_truth_and_preds(model, cfg, records)
         assert len(ground_truths) == len(predictions)
         self.ground_truths = ground_truths
         self.predictions = predictions
