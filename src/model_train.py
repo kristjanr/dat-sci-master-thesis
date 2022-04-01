@@ -56,7 +56,7 @@ def train(kl, model_path, cfg, data):
                        add_wandb_callback=cfg.WANDB_ENABLED)
 
     if getattr(cfg, 'CREATE_TF_LITE', True):
-        base_path = model_path.split('.')[0]
+        base_path = model_path.split('.h5')[0]
         tf_lite_model_path = f'{base_path}.tflite'
         keras_model_to_tflite(model_path, tf_lite_model_path)
 
