@@ -1,4 +1,5 @@
 from donkeycar.config import Config
+from donkeycar.parts.interpreter import keras_model_to_tflite
 from model_loader import build_model_name
 from donkeycar.utils import train_test_split
 from donkeycar.pipeline.training import BatchSequence
@@ -53,6 +54,11 @@ def train(kl, model_path, cfg, data):
                        patience=cfg.EARLY_STOP_PATIENCE,
                        show_plot=cfg.SHOW_PLOT,
                        add_wandb_callback=cfg.WANDB_ENABLED)
+
+    if getattr(cfg, 'CREATE_TF_LITE', True):
+        base_path = model_path.split('.')[0]
+        tf_lite_model_path = f'{base_path}.tflite'
+        keras_model_to_tflite(model_path, tf_lite_model_path)
 
     return history
 
