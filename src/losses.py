@@ -16,9 +16,8 @@ import tensorflow as tf
 
 class ModelResults:
     def __init__(self,
-                 model_class,
+                 model_type: str,
                  models_path: str,
-                 seq_length: int,
                  direction: str,
                  n_folds: int,
                  tub_records_80_speed: dict,
@@ -28,9 +27,8 @@ class ModelResults:
                  test_folds: dict,
                  config: Config):
 
-        self.model_class = model_class
+        self.model_type = model_type
         self.models_path = models_path
-        self.seq_length = seq_length
         self.direction = direction
         self.n_folds = n_folds
         self.tub_records_80_speed = tub_records_80_speed
@@ -44,8 +42,7 @@ class ModelResults:
 
     def predict_results(self):
         for fold, train_records in self.train_folds.items():
-            trained_model = load_model(self.models_path, self.model_class, self.seq_length, self.direction,
-                                       self.n_folds, fold)
+            trained_model = load_model(self.models_path, self.model_type, self.config, self.direction, self.n_folds, fold)
             test_records = self.test_folds[fold]
 
             results_80_speed, results_85_speed, results_90_speed, results_90_speed_test, results_90_speed_train = self.get_test_metrics(
