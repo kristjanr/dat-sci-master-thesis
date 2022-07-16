@@ -109,8 +109,9 @@ def get_fold_indices(data_length, n_folds=5, chunk_size=107):
             train_indices[fold].append([chunk[i] for i in train_index])
             test_indices[fold].append([chunk[i] for i in test_index])
 
-    train_folds = {k: list(itertools.chain(*v)) for k, v in train_indices.items()}
-    test_folds = {k: list(itertools.chain(*v)) for k, v in test_indices.items()}
+    train_folds = [list(itertools.chain(*v)) for k, v in train_indices.items()]
+    test_folds = [list(itertools.chain(*v)) for k, v in test_indices.items()]
 
-    return train_folds, test_folds
+    for train, test in  zip(train_folds, test_folds):
+        yield train, test
 
