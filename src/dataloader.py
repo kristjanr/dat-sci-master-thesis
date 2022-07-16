@@ -95,7 +95,7 @@ def get_folds(data, n_folds=5, chunk_size=100):
     return train_folds, test_folds
 
 
-def get_fold_indices(data_length, n_folds=5, chunk_size=100):
+def get_fold_indices(data_length, n_folds=5, chunk_size=107):
 
     chunks = split_to_chunks(list(range(data_length)), chunk_size)
     from sklearn.model_selection import KFold
