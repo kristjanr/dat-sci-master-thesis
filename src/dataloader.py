@@ -94,3 +94,27 @@ def get_folds(data, n_folds=5, chunk_size=100):
 
     return train_folds, test_folds
 
+
+def get_fold_data_and_indices(data, n_folds=5, chunk_size=100):
+
+    chunks = split_to_chunks(data, chunk_size)
+    from sklearn.model_selection import KFold
+    kf = KFold(n_splits=n_folds, shuffle=False)
+
+    train_folds = defaultdict(list)
+    train_indices = defaultdict(list)
+    test_folds = defaultdict(list)
+    test_indices = defaultdict(list)
+
+    for chunk in chunks:
+        for fold, (train_index, test_index) in enumerate(kf.split(chunk), start=1):
+            train_folds[fold].append([chunk[i] for i in train_index])
+            train_indices[fold].append(train_index)
+            test_folds[fold].append([chunk[i] for i in test_index])
+            test_indices[fold].append(test_index)
+
+    train_folds = {k: list(itertools.chain(*v)) for k, v in train_folds.items()}
+    test_folds = {k: list(itertools.chain(*v)) for k, v in test_folds.items()}
+
+    return train_folds, train_indices, test_folds, test_indices
+
