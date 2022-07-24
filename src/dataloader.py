@@ -48,6 +48,16 @@ def load_records(tub_name, cfg, data_path, size=None):
     return records
 
 
+def load_every_second_record(tub_name, cfg, data_path, size=None):
+    dataset = TubDataset(
+        config=cfg,
+        tub_paths=[os.path.expanduser(os.path.join(data_path, tub_name))],
+        seq_size=cfg.SEQUENCE_LENGTH)
+
+    records = dataset.get_every_second_record()[:size]
+    return records
+
+
 def split_to_chunks(records: List[TubRecord], chunk_size: int = 100) -> List[np.array]:
     chunks = []
     for i in range(0, len(records), chunk_size):
