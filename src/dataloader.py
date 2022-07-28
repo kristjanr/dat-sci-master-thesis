@@ -81,12 +81,24 @@ class TestChunks(unittest.TestCase):
         self.assertEqual(len(actual[1]), 100)
         self.assertEqual(len(actual[2]), 1)
 
+    def test_create_chunks_2(self):
+        n_records = 10
+        records = list(range(n_records))
+        chunk_size = 2
+
+        actual = split_to_chunks(records, chunk_size=chunk_size)
+
+        self.assertEqual(actual[0], [0, 1])
+        self.assertEqual(actual[1], [2, 3])
+        self.assertEqual(actual[2], [4, 5])
+        self.assertEqual(actual[3], [6, 7])
+        self.assertEqual(actual[4], [8, 9])
+
 
 res = unittest.main(argv=[''], verbosity=3, exit=False)
 
 
 def get_folds(data, n_folds=5, chunk_size=100):
-
     chunks = split_to_chunks(data, chunk_size)
     from sklearn.model_selection import KFold
     kf = KFold(n_splits=n_folds, shuffle=False)
@@ -123,4 +135,43 @@ def get_fold_indices(data, n_folds=5, chunk_size=107):
 
     for train, test in zip(train_folds, test_folds):
         yield train, test
+
+
+class TestGetFoldIndices(unittest.TestCase):
+
+    def test_number_of_folds(self):
+        n_records = 12
+        records = list(range(n_records))
+
+        n_folds = 2
+        actual = get_fold_indices(records, n_folds=n_folds, chunk_size=3)
+
+        self.assertEqual(len([_ for _ in actual]), n_folds)
+
+    def test_sum_of_folds(self):
+        n_records = 19252
+        records = list(range(n_records))
+        for train, test in get_fold_indices(records):
+            self.assertEqual(len(test) + len(train), n_records)
+
+    def test_2(self):
+        n_records = 19252
+        records = list(range(n_records))
+
+        chunk_size = 107
+        n_folds = 5
+
+        expected_first_consecutive_train_indices_of_first_fold = list(range(22, 107))
+        expected_first_consecutive_test_indices_of_first_fold = list(range(0, 22))
+
+        for train, test in get_fold_indices(records, n_folds=n_folds, chunk_size=chunk_size):
+            self.assertEqual(len(train), 15294)
+            self.assertEqual(len(test), 3958)
+            self.assertEqual(train[:(int((chunk_size / n_folds)*4))], expected_first_consecutive_train_indices_of_first_fold)
+            self.assertEqual(test[:int(chunk_size / n_folds + 1)], expected_first_consecutive_test_indices_of_first_fold)
+            break
+
+
+
+
 
