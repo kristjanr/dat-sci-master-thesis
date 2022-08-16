@@ -13,14 +13,12 @@ Install deps for submodule (OSX):
 
 `conda activate donkey`
 
-`cd donkeycar` 
-
-`pip install -e .`
+`pip install -e donkeycar/.`
 
 
 Install deps for this project
 
-`conda install -c conda-forge jupyterlab ipykernel scikit-learn`
+`conda install -c conda-forge jupyterlab ipykernel scikit-learn nbformat=4.4.0`
 
 `ipython kernel install --user --name=donkey`
 
