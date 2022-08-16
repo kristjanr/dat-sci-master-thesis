@@ -1,8 +1,4 @@
-
-# Driving Speed as a Hidden Factor Behind Distribution Shift
-Tartu University 2022, Msc
-
-![](visualabstract.png)
+![Driving Speed as a Hidden Factor Behind Distribution Shift - Tartu University 2022, Msc](visualabstract.png)
 
 ## Project setup
 This repo contains submodule, so do git clone recursively:
@@ -27,10 +23,13 @@ Install deps for this project
 
 `jupyter lab`
 
-## Getting models and predictions for open-loop analysis
+## Getting the predictions for open-loop evaluation
 
 The [PredictAndSave](https://github.com/kristjanr/dat-sci-master-thesis/blob/master/PredictAndSave.ipynb) notebook downloads data and models. Then it runs the inference, saving the results into a file.
 The resulting files are already in this repository, in the [open-loop-results](https://github.com/kristjanr/dat-sci-master-thesis/tree/master/open-loop-results) folder.
 
 
 
+## Open-loop Evaluation - Chapter 4.2
+
+The [OpenLoopEvaluation](OpenLoopEvaluation.ipynb) notebook calculates Mean Absolute Error for each of the model-speed - data-speed combinations. Results are used in Tables 1, 2, 3 in Chapter 4.2 in the thesis.
