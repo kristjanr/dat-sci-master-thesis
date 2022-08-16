@@ -1,7 +1,10 @@
-# dat-sci-master-thesis
-Materials of my Data Science Master's thesis
 
-# Project setup
+# Driving Speed as a Hidden Factor Behind Distribution Shift
+Tartu University 2022, Msc
+
+![](visual abstract.png)
+
+## Project setup
 This repo contains submodule, so do git clone recursively:
 
 `git clone --recursive https://github.com/kristjanr/dat-sci-master-thesis.git`
@@ -24,7 +27,7 @@ Install deps for this project
 
 `jupyter lab`
 
-# Getting models and predictions for open-loop analysis
+## Getting models and predictions for open-loop analysis
 
 The [PredictAndSave](https://github.com/kristjanr/dat-sci-master-thesis/blob/master/PredictAndSave.ipynb) notebook downloads data and models. Then it runs the inference, saving the results into a file.
 The resulting files are already in this repository, in the [open-loop-results](https://github.com/kristjanr/dat-sci-master-thesis/tree/master/open-loop-results) folder.
