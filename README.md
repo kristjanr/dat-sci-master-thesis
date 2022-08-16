@@ -53,7 +53,7 @@ It also creates Figures 12. and 13. in Chapter 4.2.
 The resulting npy files are already saved in the [ood](ood) folder.
 
 TODO for Chapter 4.4 - notebooks in the [ood](ood) folder:
-[ood/AnalyzeOOD.ipynb](ood/AnalyzeOOD.ipynb)
-[ood/clustering_dbscan.ipynb](ood/clustering_dbscan.ipynb)
-[ood/kmeans_tsne.ipynb](ood/kmeans_tsne.ipynb)
-[ood/Mahalanobis_and_AUROC.ipynb](ood/Mahalanobis_and_AUROC.ipynb)
+* [ood/AnalyzeOOD.ipynb](ood/AnalyzeOOD.ipynb)
+* [ood/clustering_dbscan.ipynb](ood/clustering_dbscan.ipynb)
+* [ood/kmeans_tsne.ipynb](ood/kmeans_tsne.ipynb)
+* [ood/Mahalanobis_and_AUROC.ipynb](ood/Mahalanobis_and_AUROC.ipynb)
