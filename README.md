@@ -1,7 +1,7 @@
 # dat-sci-master-thesis
 Materials of my Data Science Master's thesis
 
-
+# Project setup
 This repo contains submodule, so do git clone recursively:
 
 `git clone --recursive https://github.com/kristjanr/dat-sci-master-thesis.git`
@@ -23,3 +23,11 @@ Install deps for this project
 `ipython kernel install --user --name=donkey`
 
 `jupyter lab`
+
+# Getting models and predictions for open-loop analysis
+
+The [PredictAndSave](https://github.com/kristjanr/dat-sci-master-thesis/blob/master/PredictAndSave.ipynb) notebook downloads data and models. Then it runs the inference, saving the results into a file.
+The resulting files are already in this repository, in the [open-loop-results](https://github.com/kristjanr/dat-sci-master-thesis/tree/master/open-loop-results) folder.
+
+
+
