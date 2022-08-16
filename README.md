@@ -52,8 +52,18 @@ It also creates Figures 12. and 13. in Chapter 4.2.
 [SaveActivations](ood/SaveActivations.ipynb) notebook downloads and loads the models and runs the inference, saving the activations used for OOD detection in Chapter 4.4
 The resulting npy files are already saved in the [ood](ood) folder.
 
-TODO for Chapter 4.4 - notebooks in the [ood](ood) folder:
-* [ood/AnalyzeOOD.ipynb](ood/AnalyzeOOD.ipynb)
-* [ood/clustering_dbscan.ipynb](ood/clustering_dbscan.ipynb)
-* [ood/kmeans_tsne.ipynb](ood/kmeans_tsne.ipynb)
-* [ood/Mahalanobis_and_AUROC.ipynb](ood/Mahalanobis_and_AUROC.ipynb)
+### 4.4.1 Activation Skewness 
+[ood/AnalyzeOOD](ood/AnalyzeOOD.ipynb)
+
+### 4.4.2 Mahalanobis Distance
+
+[ood/kmeans_tsne](ood/kmeans_tsne.ipynb)
+* Creates Figure 16. Finding the best number of clusters for K-means clustering method in Chapter 4.4.2.
+* Creates Figure 18. Fast model's t-SNE 3D plot viewed from three different angles in Chapter 4.4.3.
+
+[ood/Mahalanobis_and_AUROC](ood/Mahalanobis_and_AUROC.ipynb)
+* Creates Figure 17. ROC curve for InD and OOD Mahalanobis distances from K-means cluster centres in Chapter 4.4.2.
+
+
+## 4.5 Multi-frame Input Distribution Shift Analysis Using Synthesised Data 
+[synthesized](synthesized)
