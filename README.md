@@ -2,7 +2,7 @@
 # Driving Speed as a Hidden Factor Behind Distribution Shift
 Tartu University 2022, Msc
 
-![](visual abstract.png)
+![](visualabstract.png)
 
 ## Project setup
 This repo contains submodule, so do git clone recursively:
