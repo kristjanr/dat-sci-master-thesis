@@ -57,15 +57,12 @@ The resulting npy files are already saved in the [ood](ood) folder.
 ### 4.4.1 Activation Skewness 
 Tables and the Figure in this chapter is created in the [ood/ActivationSkewness](ood/ActivationSkewness.ipynb) notebook.
 
-### 4.4.2 Mahalanobis Distance
+### 4.4.2 Mahalanobis Distance and 4.4.3 T-distributed Stochastic Neighbour Embedding
 
-[ood/kmeans_tsne](ood/kmeans_tsne.ipynb)
+[ood/KmeansMahalanobisAUROCtSNE](ood/KmeansMahalanobisAUROCtSNE.ipynb)
 * Creates Figure 16. Finding the best number of clusters for K-means clustering method in Chapter 4.4.2.
-* Creates Figure 18. Fast model's t-SNE 3D plot viewed from three different angles in Chapter 4.4.3.
-
-[ood/Mahalanobis_and_AUROC](ood/Mahalanobis_and_AUROC.ipynb)
 * Creates Figure 17. ROC curve for InD and OOD Mahalanobis distances from K-means cluster centres in Chapter 4.4.2.
-
+* Creates Figure 18. Fast model's t-SNE 3D plot viewed from three different angles in Chapter 4.4.3.
 
 ## 4.5 Multi-frame Input Distribution Shift Analysis Using Synthesised Data 
 [synthesized](synthesized)
