@@ -30,32 +30,38 @@ Install deps for this project
 The [PredictAndSave](PredictAndSave.ipynb) notebook downloads data and models. Then it runs the inference, saving the results into a file.
 The resulting files are already in this repository, in the [open-loop-results](open-loop-results) folder.
 
-## Ground Truth Analysis - Chapters 3.4.1 and 4.1.3
+## Chapters 3.4.1 and 4.1.3 - Ground Truth Analysis 
 
-...is in the [GroundTruthsAnalysis](GroundTruthsAnalysis.ipynb) notebook.
-It creates the Figure 6. in Chapter 3.4.1, Automated Data Gathering and
-Figure 11. in Chapter 4.1.3, Ground Truth Turning Angle Distribution.
-
-
-## Validating Assumptions About Data - Chapter 4.1
-
-The [ValidatingAssumptionsAboutDataI](ValidatingAssumptionsAboutDataI.ipynb) notebook provides results for 4.1.1 Driving Speed Differences and 4.1.2 Frame Differences chapters 
+Ground Truth Analysis is in the [GroundTruthsAnalysis](GroundTruthsAnalysis.ipynb) notebook.
+The notebook creates 
+- Figure 6. in Chapter 3.4.1, Automated Data Gathering 
+- Figure 11. in Chapter 4.1.3, Ground Truth Turning Angle Distribution.
 
 
+## Chapter 4.1 - Validating Assumptions About Data
 
-## Open-loop Evaluation - Chapter 4.2
+The [ValidatingAssumptionsAboutDataI](ValidatingAssumptionsAboutDataI.ipynb) notebook provides results for 
+- 4.1.1 Driving Speed Differences  
+- 4.1.2 Frame Differences chapters 
 
-The [OpenLoopEvaluation](OpenLoopEvaluation.ipynb) notebook calculates Mean Absolute Error for each of the model-speed - data-speed combinations. Results are used in Tables 1, 2, 3 in Chapter 4.2 in the thesis.
-It also creates Figures 12. and 13. in Chapter 4.2.
+
+## Chapter 4.2 - Open-loop Evaluation
+
+The [OpenLoopEvaluation](OpenLoopEvaluation.ipynb) notebook calculates Mean Absolute Error for each of the model-speed - data-speed combinations. 
+- Results are used in Tables 1, 2, 3 in Chapter 4.2 in the thesis.
+- It also creates Figures 12. and 13. in Chapter 4.2.
 
 
-## Chapter 4.4
+## Chapter 4.4 - Multi-frame Inputs Become Out of Distribution
 
-[SaveActivations](ood/SaveActivations.ipynb) notebook downloads and loads the models and runs the inference, saving the activations used for OOD detection in Chapter 4.4
+[SaveActivations](ood/SaveActivations.ipynb) notebook downloads and loads the models. Then it runs the inference, saving the activations used for OOD detection in Chapter 4.4.
 The resulting npy files are already saved in the [ood](ood) folder.
 
 ### 4.4.1 Activation Skewness 
-Tables and the Figure in this chapter is created in the [ood/ActivationSkewness](ood/ActivationSkewness.ipynb) notebook.
+The [ood/ActivationSkewness](ood/ActivationSkewness.ipynb) notebook creates
+- Table 6. Basic statistics for activations
+- Figure 15. Frame skewness AUROC
+
 
 ### 4.4.2 Mahalanobis Distance and 4.4.3 T-distributed Stochastic Neighbour Embedding
 
@@ -65,4 +71,4 @@ Tables and the Figure in this chapter is created in the [ood/ActivationSkewness]
 * Creates Figure 18. Fast model's t-SNE 3D plot viewed from three different angles in Chapter 4.4.3.
 
 ## 4.5 Multi-frame Input Distribution Shift Analysis Using Synthesised Data 
-[synthesized](synthesized)
+The [synthesized](synthesized) 
