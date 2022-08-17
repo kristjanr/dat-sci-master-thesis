@@ -30,10 +30,8 @@ Install deps for this project
 The [PredictAndSave](PredictAndSave.ipynb) notebook downloads data and models. Then it runs the inference, saving the results into a file.
 The resulting files are already in this repository, in the [open-loop-results](open-loop-results) folder.
 
-## Chapters 3.4.1 and 4.1.3 - Ground Truth Analysis 
-
-Ground Truth Analysis is in the [GroundTruthsAnalysis](GroundTruthsAnalysis.ipynb) notebook.
-The notebook creates 
+## Chapters 3.4.1 and 4.1.3 - Ground Truth Analysis
+The  [GroundTruthsAnalysis](GroundTruthsAnalysis.ipynb) notebook creates 
 - Figure 6. in Chapter 3.4.1, Automated Data Gathering 
 - Figure 11. in Chapter 4.1.3, Ground Truth Turning Angle Distribution.
 
@@ -57,20 +55,20 @@ The [OpenLoopEvaluation](OpenLoopEvaluation.ipynb) notebook calculates Mean Abso
 [SaveActivations](ood/SaveActivations.ipynb) notebook downloads and loads the models. Then it runs the inference, saving the activations used for OOD detection in Chapter 4.4.
 The resulting npy files are already saved in the [ood](ood) folder.
 
-### 4.4.1 Activation Skewness 
+### Chapter 4.4.1 - Activation Skewness 
 The [ood/ActivationSkewness](ood/ActivationSkewness.ipynb) notebook creates
 - Table 6. Basic statistics for activations
 - Figure 15. Frame skewness AUROC
 
 
-### 4.4.2 Mahalanobis Distance and 4.4.3 T-distributed Stochastic Neighbour Embedding
+### Chapter 4.4.2 - Mahalanobis Distance and 4.4.3 T-distributed Stochastic Neighbour Embedding
 
 [ood/KmeansMahalanobisAUROCtSNE](ood/KmeansMahalanobisAUROCtSNE.ipynb)
 * Creates Figure 16. Finding the best number of clusters for K-means clustering method in Chapter 4.4.2.
 * Creates Figure 17. ROC curve for InD and OOD Mahalanobis distances from K-means cluster centres in Chapter 4.4.2.
 * Creates Figure 18. Fast model's t-SNE 3D plot viewed from three different angles in Chapter 4.4.3.
 
-## 4.5 Multi-frame Input Distribution Shift Analysis Using Synthesised Data 
+## Chapter 4.5 - Multi-frame Input Distribution Shift Analysis Using Synthesised Data 
 The [synthesized](synthesized) folder contains the notebooks which 
 - get the predictions and do open-loop evaluation for multi-frame models, calculating the mean absolute error metric.
 - get the activations and calculate basic statistics with skewness
