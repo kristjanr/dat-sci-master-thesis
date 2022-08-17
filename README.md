@@ -1,6 +1,6 @@
 ![Driving Speed as a Hidden Factor Behind Distribution Shift - Tartu University 2022, Msc](visualabstract.png)
 
-The thesis can be found [here](https://comserv.cs.ut.ee/ati_thesis/datasheet.php?id=75358&year=2022).
+The thesis can be found [here](https://comserv.cs.ut.ee/ati_thesis/datasheet.php?id=75358&language=en).
 
 ## Project setup
 This repo contains submodule, so do git clone recursively:
