@@ -55,7 +55,7 @@ It also creates Figures 12. and 13. in Chapter 4.2.
 The resulting npy files are already saved in the [ood](ood) folder.
 
 ### 4.4.1 Activation Skewness 
-[ood/AnalyzeOOD](ood/AnalyzeOOD.ipynb)
+Tables and the Figure in this chapter is created in the [ood/ActivationSkewness](ood/ActivationSkewness.ipynb) notebook.
 
 ### 4.4.2 Mahalanobis Distance
 
