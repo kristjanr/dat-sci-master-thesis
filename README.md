@@ -71,4 +71,8 @@ The [ood/ActivationSkewness](ood/ActivationSkewness.ipynb) notebook creates
 * Creates Figure 18. Fast model's t-SNE 3D plot viewed from three different angles in Chapter 4.4.3.
 
 ## 4.5 Multi-frame Input Distribution Shift Analysis Using Synthesised Data 
-The [synthesized](synthesized) 
+The [synthesized](synthesized) folder contains the notebooks which 
+- get the predictions and do open-loop evaluation for multi-frame models, calculating the mean absolute error metric.
+- get the activations and calculate basic statistics with skewness
+- calculate Mahalanobis distances and creates the AUROC diagram.
+- create t-SNE 3-D diagrams.
