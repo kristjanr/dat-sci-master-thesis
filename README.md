@@ -7,8 +7,14 @@ This repo contains submodule, so do git clone recursively:
 
 `git clone --recursive https://github.com/kristjanr/dat-sci-master-thesis.git`
 
+Switch the submodule repository to dev branch:
+`cd dat-sci-master-thesis/donkeycar`
+`git switch dev`
+
 
 Install deps for submodule (OSX):
+
+`cd ..`
 
 `conda env create -f donkeycar/install/envs/mac.yml` (this may take up to 5 minutes)
 
